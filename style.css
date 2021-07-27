@@ -60,7 +60,6 @@ body {
 #Topics > h3:hover {
     border: 2px solid antiquewhite;
     border-radius: 15px;
-    /* filter: drop-shadow(0 0 0.75rem rgba(219, 219, 219, 0.75)); */
 }
 
 #Topics.Active > h3 {
@@ -87,8 +86,6 @@ body {
     margin-left: var(--unit);
     margin-right: var(--unit);
     padding: calc(2 * var(--unit));
-    /* padding-bottom: calc(2 * var(--unit));
-    padding-right: calc(2 * var(--unit)); */
     max-height: calc(100vh - var(--header-size) - 11 * var(--unit));
     overflow: scroll;
     border-radius: 15px;
@@ -113,4 +110,20 @@ body {
 
 .Section.Visible {
     display: unset;
+}
+
+.Section > div,p {
+    display: inline;
+}
+
+.Section > div > button {
+    cursor: pointer;
+}
+
+.Section > div > button + img {
+    visibility: hidden;
+}
+
+.Section > div > button:hover + img {
+    visibility: visible;
 }

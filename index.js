@@ -17,20 +17,34 @@ const selectTopic = sectionId => {
     if (currentSection) currentSection?.classList.remove('Visible');
     if (!currentSection) openingContainer.classList.add('Hidden');
     const sectionToSelect = [...sections].find(s => s.dataset.section === sectionId);
-    if (sectionToSelect) sectionToSelect.classList.add('Visible');
+    if (sectionToSelect) {
+        const images = sectionToSelect.querySelectorAll('div');
+        console.log([...images].map(i => i.dataset.link));
+        images.forEach(imageContainer => {
+            const img = document.createElement("img");
+            img.src = imageContainer.dataset.link.replace('/img/', '/img-thumb/');
+            const thumb = document.createElement("button");
+            imageContainer.innerHTML = '';
+            thumb.innerText = '📷'
+            imageContainer.appendChild(thumb);
+            imageContainer.appendChild(img);
+            const instance =  Popper.createPopper(thumb, img, {
+                // options
+              });
+            setInterval(() => {
+                instance.update();
+            }, 1000);
+        });
+        sectionToSelect.classList.add('Visible');
+    };
 };
 
 const reset = () => {
     const currentSection = [...sections].find(s => s.classList.contains('Visible'));
     if (currentSection) currentSection?.classList.remove('Visible');
     openingContainer.classList.remove('Hidden');
-    // sectionContainer.classList.add('Hidden');
 };
 
 [...sectionHeaders].forEach(h => h.addEventListener('click', e => {
     selectTopic(e.target.dataset.section);
 }, false));
-
-resetButton.addEventListener('click', () => {
-    c
-}, false);

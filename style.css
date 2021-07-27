@@ -95,6 +95,14 @@ body {
     filter: drop-shadow(0 0 0.5rem rgba(0,0,0,0.75));
 }
 
+#Opening + #Topics + #Sections {
+    display: none;
+}
+
+#Opening.Hidden + #Topics + #Sections {
+    display: block;
+}
+
 #Opening.Hidden {
     display: none;
 }

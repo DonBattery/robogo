@@ -1,5 +1,6 @@
 const topicsContainer = document.querySelector('#Topics');
 const openingContainer = document.querySelector('#Opening');
+const sectionContainer = document.querySelectorAll('#Sections');
 const sections = document.querySelectorAll('.Section');
 const resetButton = document.querySelector('h1');
 const sectionHeaders = document.querySelectorAll('h3');
@@ -23,6 +24,7 @@ const reset = () => {
     const currentSection = [...sections].find(s => s.classList.contains('Visible'));
     if (currentSection) currentSection?.classList.remove('Visible');
     openingContainer.classList.remove('Hidden');
+    // sectionContainer.classList.add('Hidden');
 };
 
 [...sectionHeaders].forEach(h => h.addEventListener('click', e => {

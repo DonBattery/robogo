@@ -50,10 +50,11 @@ body {
 #Topics > h3 {
     display: none;
     border: 2px solid transparent;
-    margin: calc(1 * var(--unit)) calc(3.5 * var(--unit));
+    margin: 0 calc(3.5 * var(--unit));
     width: calc(100vw - 15 * var(--unit));
     max-width: calc(0.5 * var(--max-width));
-    padding: var(--unit) calc(2 * var(--unit));
+    padding: calc(2 * var(--unit));
+    font-weight: 200;
     /* padding-left: calc(5 * var(--unit)); */
 }
 
@@ -68,9 +69,14 @@ body {
 
 #Topics > h1 {
     color: antiquewhite;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 200;
     margin-top: var(--unit);
+}
+
+#Topics.Active > h1 {
+    margin-bottom: var(--unit);
+    /* content: none; */
 }
 
 #Topics > h1:before {
@@ -126,4 +132,16 @@ body {
 
 .Section > div > button:hover + img {
     visibility: visible;
+}
+
+.Section > h4 {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: calc(2 * var(--unit));
+}
+
+.Section > p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    line-height: 1.5;
 }

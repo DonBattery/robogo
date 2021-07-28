@@ -19,7 +19,6 @@ const selectTopic = sectionId => {
     const sectionToSelect = [...sections].find(s => s.dataset.section === sectionId);
     if (sectionToSelect) {
         const images = sectionToSelect.querySelectorAll('div');
-        console.log([...images].map(i => i.dataset.link));
         images.forEach(imageContainer => {
             const img = document.createElement("img");
             img.src = imageContainer.dataset.link.replace('/img/', '/img-thumb/');
@@ -28,9 +27,7 @@ const selectTopic = sectionId => {
             thumb.innerText = '📷'
             imageContainer.appendChild(thumb);
             imageContainer.appendChild(img);
-            const instance =  Popper.createPopper(thumb, img, {
-                // options
-              });
+            const instance =  Popper.createPopper(thumb, img);
             setInterval(() => {
                 instance.update();
             }, 1000);

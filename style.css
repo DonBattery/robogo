@@ -145,3 +145,12 @@ body {
     font-weight: 200;
     line-height: 1.5;
 }
+
+.fotorama {
+    visibility: hidden;
+    height: 0;
+}
+
+.fotorama--fullscreen {
+    visibility: visible;
+}

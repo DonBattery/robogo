@@ -5,6 +5,9 @@ const sections = document.querySelectorAll('.Section');
 const resetButton = document.querySelector('h1');
 const sectionHeaders = document.querySelectorAll('h3');
 
+const $fotoramaDiv = $('.fotorama').fotorama();
+const gallery = $fotoramaDiv.data('fotorama');
+
 topicsContainer.addEventListener('click', e => {
     topicsContainer.classList.toggle('Active');
     const id = e.target.dataset?.section;
@@ -13,18 +16,26 @@ topicsContainer.addEventListener('click', e => {
 }, false);
 
 const selectTopic = sectionId => {
+    gallery.destroy();
     const currentSection = [...sections].find(s => s.classList.contains('Visible'));
     if (currentSection) currentSection?.classList.remove('Visible');
     if (!currentSection) openingContainer.classList.add('Hidden');
     const sectionToSelect = [...sections].find(s => s.dataset.section === sectionId);
     if (sectionToSelect) {
         const images = sectionToSelect.querySelectorAll('div');
-        images.forEach(imageContainer => {
+        images.forEach((imageContainer, i) => {
             const img = document.createElement("img");
-            img.src = imageContainer.dataset.link.replace('/img/', '/img-thumb/');
+            const imgSrc = imageContainer.dataset.link.replace('/img/', '/img-thumb/')
+            gallery.push({ img: imageContainer.dataset.link, thumb: imgSrc });
+            img.src = imgSrc;
             const thumb = document.createElement("button");
             imageContainer.innerHTML = '';
-            thumb.innerText = '📷'
+            thumb.innerText = '📷';
+            thumb.onclick = () => {
+                gallery.show(i);
+                gallery.requestFullScreen();
+            };
+
             imageContainer.appendChild(thumb);
             imageContainer.appendChild(img);
             const instance =  Popper.createPopper(thumb, img);

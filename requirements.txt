@@ -2,4 +2,4 @@ domonic==0.3.19
 Jinja2==2.11.3
 beautifulsoup4==4.9.3
 Pillow==8.3.1
-aws-cli
+awscli

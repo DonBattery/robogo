@@ -1,9 +1,8 @@
 name: Build and deploy the page
 on:
-  pull_request:
-    types: closed
+  push:
     branches:
-      - master
+      - main
 jobs:
   Deploy_Page:
     runs-on: ubuntu-latest

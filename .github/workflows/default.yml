@@ -1,7 +1,7 @@
 name: Build the page
 on: [push]
 jobs:
-  Get-dependencies-and-build-page:
+  Build_Page:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code

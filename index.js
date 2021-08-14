@@ -25,7 +25,7 @@ const selectTopic = sectionId => {
         const images = sectionToSelect.querySelectorAll('div');
         images.forEach((imageContainer, i) => {
             const img = document.createElement("img");
-            const imgSrc = imageContainer.dataset.link.replace('/img/', '/img-thumb/')
+            const imgSrc = imageContainer.dataset.link.replace('images/', 'images-thumb/')
             gallery.push({ img: imageContainer.dataset.link, thumb: imgSrc });
             img.src = imgSrc;
             const thumb = document.createElement("button");

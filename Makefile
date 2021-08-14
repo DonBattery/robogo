@@ -3,3 +3,8 @@ dep:
 
 page:
 	./get-content.py > index.html
+
+deploy:
+	./deploy.sh
+
+bundle: page deploy

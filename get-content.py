@@ -7,7 +7,7 @@ import jinja2
 
 class God:
 
-    images_link = 'https://arobogo-cdn.s3.eu-central-1.amazonaws.com/img/'
+    images_link = 'images/'
 
     def __init__(self, original_htm: str, texteditor_html: str) -> None:
         self.orig_htm = original_htm

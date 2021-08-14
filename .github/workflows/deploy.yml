@@ -1,0 +1,19 @@
+name: Build and deploy the page
+on:
+  pull_request:
+    types: closed
+    branches:
+      - master
+jobs:
+  Get-dependencies-build-and-deploy-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: make dep
+      - name: Make bundle
+        env:
+        AWS_REGION: eu-central-1
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: make bundle

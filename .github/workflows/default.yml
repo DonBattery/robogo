@@ -1,7 +1,7 @@
-name: GitHub Actions Demo
+name: Build the page
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Get-dependencies-and-build-page:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
